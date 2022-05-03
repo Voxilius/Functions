@@ -1,0 +1,90 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+void main()
+{
+	setlocale(LC_ALL, "Russian");
+	string Again;
+	Again = "Restart";
+	do{
+		double Task;
+		cout << "Введите номер задания(от 1 до 4): ";
+		cin >> Task;
+
+		if (Task == 1) { // Задача 1.
+			cout << "\nПреобразование числа в денежный формат\n";
+			cout << "Введите число: ";
+			double InputValue;
+			cin >> InputValue;
+			double грн;
+			double остаток = modf(InputValue, &грн);
+			double коп = round(остаток * 100);
+			cout << InputValue << " грн." << " - это " << грн << " грн. " << коп << " коп.\n";
+		}
+
+		else if (Task == 2) { // Задача 2.
+			cout << "\nВычисление стоимости покупки.\nВведите исходные данные.\n";
+			double Price;
+			double Amount;
+			double Resoult;
+			cout << "Цена тетради (грн.): ";
+			cin >> Price;
+			cout << "Количество тетрадей: ";
+			cin >> Amount;
+			Resoult = Price * Amount;
+			cout << "Цена карандаша (грн.): ";
+			cin >> Price;
+			cout << "Количество карандашей: ";
+			cin >> Amount;
+			Resoult = Resoult + Amount * Price;
+			cout << "Стоимость покупки: " << Resoult << "\n";
+		}
+
+		else if (Task == 3) { // Задача 3.
+			setlocale(LC_ALL, "Russian");
+			cout << "\nВычисление стоимости покупки.\nВведите исходные данные.\n";
+			double Price;
+			double Price2;
+			double Amount;
+			cout << "Цена тетради (грн.): ";
+			cin >> Price;
+			cout << "Цена обложки: ";
+			cin >> Price2;
+			cout << "Количество комплектов: ";
+			cin >> Amount;
+			cout << "Стоимость покупки: " << (Price + Price2) * Amount << "\n";
+		}
+
+		else if (Task == 4) { // Задача 4.
+			setlocale(LC_ALL, "Russian");
+			cout << "\nВычисление стоимости поездки на дачу и обратно.\nВведите исходные данные.\n";
+			double Distance;
+			double FuelRate;
+			double Price;
+			cout << "Расстояние до дачи (км): ";
+			cin >> Distance;
+			cout << "Расход бензина (литров на 100км пробега): ";
+			cin >> FuelRate;
+			cout << "Цена литра бензина (грн.): ";
+			cin >> Price;
+			cout << "Поездка на дачу и обратно обойдётся в " << Distance * (FuelRate / 100) * Price << " грн.\n";
+		}
+
+		else { // Введён неверный номер задачи.
+			cout << "\n-_-";
+		}
+
+
+
+
+		do { // Перезапуск или выход из программы.
+			cout << "\nЧто-бы пезезапустить программу введите ""Restart""\n";
+			cout << "Что-бы выйти из программы введите ""End""\n";
+			cin >> Again;
+		} while (Again != string("Restart") and Again != string("End"));
+		if (Again == string("Restart")) {
+			cout << "Перезапускаем.\n\n\n";
+		}
+	} while (Again == "Restart");
+}
