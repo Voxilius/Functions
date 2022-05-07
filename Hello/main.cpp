@@ -12,7 +12,7 @@ template<typename T>
 void Sort(T arr[], const int n);
 
 template<typename T>
-T Sum(T arr[], const int n);
+int Sum(T arr[], const int n);
 
 template<typename T>
 double Avg(T arr[], const int n);
@@ -70,7 +70,7 @@ void Sort(T arr[], const int n) {
 }
 
 template<typename T>
-T Sum(T arr[], const int n) {
+int Sum(T arr[], const int n) {
 	T Sum = 0;
 	for (int i = 0; i < n; i++) {
 		Sum += arr[i];
